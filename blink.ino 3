@@ -1,0 +1,60 @@
+const pin_t MY_LED = D7;
+
+void setup() {
+    // Initialize the LED pin as an output
+    pinMode(MY_LED, OUTPUT);
+}
+
+void loop() {
+    // Letter A
+    digitalWrite(MY_LED, HIGH);
+    delay(500);
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(1500);
+
+    // Letter L
+    digitalWrite(MY_LED, HIGH);
+    delay(500);
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(500);
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(1500);
+
+    // Letter V
+    digitalWrite(MY_LED, HIGH);
+    delay(500);
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(500);
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(500);
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(1500);
+
+    // Letter I
+    digitalWrite(MY_LED, HIGH);
+    delay(500);
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(1500);
+
+    // Letter N
+    digitalWrite(MY_LED, HIGH);
+    delay(500);
+    digitalWrite(MY_LED, LOW);
+    delay(500);
+    digitalWrite(MY_LED, HIGH);
+    delay(1500);
+}
