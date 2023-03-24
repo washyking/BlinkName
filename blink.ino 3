@@ -1,60 +1,96 @@
 const pin_t MY_LED = D7;
+const pin_t MY_BUTTON = D2;
+bool ledOn = false;
 
 void setup() {
-    // Initialize the LED pin as an output
+    // Initialise the LED pin as an output
     pinMode(MY_LED, OUTPUT);
+    //Initiliase the Button as an input
+    pinMode(MY_BUTTON, INPUT_PULLUP);
+    // Attach an interrupt to the button pin that triggers when the button is pressed
+    attachInterrupt(MY_BUTTON, buttonPressed, RISING);
 }
 
-void loop() {
-    // Letter A
-    digitalWrite(MY_LED, HIGH);
-    delay(500);
-    digitalWrite(MY_LED, LOW);
-    delay(500);
-    digitalWrite(MY_LED, HIGH);
-    delay(1500);
-
-    // Letter L
-    digitalWrite(MY_LED, HIGH);
-    delay(500);
-    digitalWrite(MY_LED, LOW);
-    delay(500);
-    digitalWrite(MY_LED, HIGH);
-    delay(500);
-    digitalWrite(MY_LED, LOW);
-    delay(500);
-    digitalWrite(MY_LED, HIGH);
-    delay(1500);
-
-    // Letter V
-    digitalWrite(MY_LED, HIGH);
-    delay(500);
-    digitalWrite(MY_LED, LOW);
-    delay(500);
-    digitalWrite(MY_LED, HIGH);
-    delay(500);
-    digitalWrite(MY_LED, LOW);
-    delay(500);
-    digitalWrite(MY_LED, HIGH);
-    delay(500);
-    digitalWrite(MY_LED, LOW);
-    delay(500);
-    digitalWrite(MY_LED, HIGH);
-    delay(1500);
-
-    // Letter I
-    digitalWrite(MY_LED, HIGH);
-    delay(500);
-    digitalWrite(MY_LED, LOW);
-    delay(500);
-    digitalWrite(MY_LED, HIGH);
-    delay(1500);
-
-    // Letter N
-    digitalWrite(MY_LED, HIGH);
-    delay(500);
-    digitalWrite(MY_LED, LOW);
-    delay(500);
-    digitalWrite(MY_LED, HIGH);
-    delay(1500);
+void loop() 
+{
+    
+    if (ledOn) {
+        digitalWrite(MY_LED, LOW);
+        delay(500);
+        // If the button is pressed while the LED is on, reset the blinking pattern
+        if (digitalRead(MY_BUTTON) == LOW) {
+            ledOn = false;
+        }
+    }
+    
+    else {
+        // Letter A
+        digitalWrite(MY_LED, HIGH);
+        delay(500);
+        digitalWrite(MY_LED, LOW);
+        delay(500);
+        digitalWrite(MY_LED, HIGH);
+        delay(1500);
+    
+        // Letter L
+        digitalWrite(MY_LED, HIGH);
+        delay(500);
+        digitalWrite(MY_LED, LOW);
+        delay(500);
+        digitalWrite(MY_LED, HIGH);
+        delay(500);
+        digitalWrite(MY_LED, LOW);
+        delay(500);
+        digitalWrite(MY_LED, HIGH);
+        delay(1500);
+    
+        // Letter V
+        digitalWrite(MY_LED, HIGH);
+        delay(500);
+        digitalWrite(MY_LED, LOW);
+        delay(500);
+        digitalWrite(MY_LED, HIGH);
+        delay(500);
+        digitalWrite(MY_LED, LOW);
+        delay(500);
+        digitalWrite(MY_LED, HIGH);
+        delay(500);
+        digitalWrite(MY_LED, LOW);
+        delay(500);
+        digitalWrite(MY_LED, HIGH);
+        delay(1500);
+    
+        // Letter I
+        digitalWrite(MY_LED, HIGH);
+        delay(500);
+        digitalWrite(MY_LED, LOW);
+        delay(500);
+        digitalWrite(MY_LED, HIGH);
+        delay(1500);
+    
+        // Letter N
+        digitalWrite(MY_LED, HIGH);
+        delay(500);
+        digitalWrite(MY_LED, LOW);
+        delay(500);
+        digitalWrite(MY_LED, HIGH);
+        delay(1500);
+    
+    }
+    
+    
 }
+    
+void buttonPressed() {
+        
+        if (ledOn) {
+            ledOn = false;
+        }
+        
+        else {
+            ledOn = true;
+    }
+}
+    
+    
+
